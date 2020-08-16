@@ -27,8 +27,12 @@ source test_venv/bin/activate
 ### install packages
 ```
 pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/
+#in linux
 pip uninstall tensorflow
 pip install tensorflow-gpu=1.14.0
+#in mac
+pip install tensorflow==1.14.0
+#in all
 pip install kashgari-tf==0.5.5 -i https://mirrors.aliyun.com/pypi/simple/
 ```
 
