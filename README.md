@@ -80,3 +80,17 @@ make run-cmdline
 }
 ```
 
+test:
+```
+ rasa shell -m models/nlu/nlu-20200816-165652.tar.gz
+```
+
+起服务:
+```
+rasa run --enable-api -m  models/nlu/nlu-20200816-165652.tar.gz
+```
+客户端：
+```
+curl localhost:5005/model/parse -d '{"text":"你好"}'
+```
+

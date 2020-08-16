@@ -3,3 +3,5 @@
 /__MACOSX
 /models
 /intent_weights.h5
+/out.log
+/rasa_core.log

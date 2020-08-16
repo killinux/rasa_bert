@@ -6,7 +6,7 @@ train-nlu:
 
 run:
 	rasa run actions --actions actions.actions & 
-	rasa run --endpoints configs/endpoints.yml --enable-api -m models/20191024-173414.tar.gz -p 8008 --debug
+	rasa run --endpoints configs/endpoints.yml --enable-api -m models/20200816-153124.tar.gz -p 8008 --debug
 
 run-nlu:
 	rasa run --enable-api -m models/nlu
