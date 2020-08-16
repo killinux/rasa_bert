@@ -88,9 +88,14 @@ test:
 起服务:
 ```
 rasa run --enable-api -m  models/nlu/nlu-20200816-165652.tar.gz
+或：
+rasa run --enable-api -m  models/nlu/nlu-20200816-184316.tar.gz  -p 5500 --cors "*" --log-file out.log &
 ```
 客户端：
 ```
 curl localhost:5005/model/parse -d '{"text":"你好"}'
 ```
 
+
+参考我的博客：
+https://www.iteye.com/blog/haoningabc-2516308
