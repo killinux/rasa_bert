@@ -9,7 +9,6 @@
     - [run model](#run-model)    
     - [test in cmdline](#test-in-cmdline)    
     - [test by http server](#test-by-http-server)    
-    - [后续的话](#后续的话)
 
 ## Running by command
 ### require environment
@@ -28,13 +27,17 @@ source test_venv/bin/activate
 ### install packages
 ```
 pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/
+#in linux
+pip uninstall tensorflow
+pip install tensorflow-gpu=1.14.0
 pip install kashgari-tf==0.5.5 -i https://mirrors.aliyun.com/pypi/simple/
 ```
+安装完kashgari-tf 可能会会有错误，忽略 可以make train就行
 
 ### set PYTHONPATH
 ```
 export PYTHONPATH=/path/to/your/component
- export PYTHONPATH=/opt/mt/rasa/rasa50/components
+export PYTHONPATH=/opt/mt/rasa/rasa_bert/components
 ```
 上面完成后所需要的环境就搭建完成，下面就可以开始训练了，当然你需要在config.yml里面将bert的预训练路径指定下。
 
