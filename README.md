@@ -6,22 +6,25 @@
     - [install packages](#install-packages)    
     - [set PYTHONPATH](#set-pythonpath)    
     - [train model](#train-model)    
-    - [run model](#run-model)    
-    - [test in cmdline](#test-in-cmdline)    
-    - [test by http server](#test-by-http-server)    
+    - [run model](#run-model)  
+    - [test](#test)    
+    - [起服务](#起服务) 
+    - [客户端](#客户端) 
+    - [参考我的博客](#参考我的博客)    
+  
 
 ## Running by command
 ### require environment
- - python >= 3.6
+ - python == 3.7
 
 ### install python venv
 ```
-python3 -m venv test_venv
+conda create -n rasa_bert python=3.7
 ```
 
 ### convert to test_venv
 ```
-source test_venv/bin/activate
+conda activate rasa_bert
 ```
 
 ### install packages
@@ -57,6 +60,8 @@ keras-bert 0.86.0 requires Keras>=2.4.3, but you'll have keras 2.2.4 which is in
 ### train model
 ```
 make train
+如果只训练nlu：
+rasa train nlu -u data/nlu -c config.yml --out models/nlu
 ```
 训练nlu和core模型，新版本中会将模型自动打包成zip文件。
 
@@ -71,31 +76,24 @@ make run-cmdline
 ```
 可以在命令行中测试
 
-### test by http server
-`http://localhost:5005/webhooks/rest/webhook` post请求，请求参数例如：
-```
-{
-    "sender": "0001",
-    "message": "你好"
-}
-```
 
-test:
+
+### test:
 ```
  rasa shell -m models/nlu/nlu-20200816-165652.tar.gz
 ```
 
-起服务:
+### 起服务:
 ```
 rasa run --enable-api -m  models/nlu/nlu-20200816-165652.tar.gz
 或：
 rasa run --enable-api -m  models/nlu/nlu-20200816-184316.tar.gz  -p 5500 --cors "*" --log-file out.log &
 ```
-客户端：
+### 客户端：
 ```
 curl localhost:5005/model/parse -d '{"text":"你好"}'
 ```
 
 
-参考我的博客：
+### 参考我的博客：
 https://www.iteye.com/blog/haoningabc-2516308
