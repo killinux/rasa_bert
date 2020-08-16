@@ -2,12 +2,12 @@ language: "zh"
 
 pipeline:
   - name: "kashgari_intent_classifier.KashgariIntentClassifier"
-    bert_model_path: "/opt/mt/rasa/rasa50/google/chinese_wwm_ext_L-12_H-768_A-12"
+    bert_model_path: "/opt/mt/rasa/rasa_bert/google/chinese_wwm_ext_L-12_H-768_A-12"
     use_cudnn_cell: True
     sequence_length: 32
 
   - name: "kashgari_entity_extractor.KashgariEntityExtractor"
-    bert_model_path: "/opt/mt/rasa/rasa50/google/chinese_wwm_ext_L-12_H-768_A-12"
+    bert_model_path: "/opt/mt/rasa/rasa_bert/google/chinese_wwm_ext_L-12_H-768_A-12"
     use_cudnn_cell: True
     sequence_length: 32
 
