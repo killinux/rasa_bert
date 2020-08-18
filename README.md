@@ -11,7 +11,10 @@
     - [起服务](#起服务) 
     - [客户端](#客户端) 
     - [参考我的博客](#参考我的博客)    
-  
+## 说明
+- rasa-nlu 使用bert的例子,先train进行自定义预料的fine-tune，在用rasa启动nlu服务
+- 需要自己下载bert的预训练模型chinese_wwm_ext_L-12_H-768_A-1 
+- 自定义预料放在data/nlu/nlu.md中 配置intent和对应的话术
 
 ## Running by command
 ### require environment
@@ -85,13 +88,15 @@ make run-cmdline
 
 ### 起服务:
 ```
+export PYTHONPATH=/opt/mt/rasa/rasa_bert/components
+
 rasa run --enable-api -m  models/nlu/nlu-20200816-165652.tar.gz
 或：
-rasa run --enable-api -m  models/nlu/nlu-20200816-184316.tar.gz  -p 5500 --cors "*" --log-file out.log &
+rasa run --enable-api -m  models/nlu/nlu-20200818-134939.tar.gz -p 5500 --cors "*" --log-file out.log &
 ```
 ### 客户端：
 ```
-curl localhost:5005/model/parse -d '{"text":"你好"}'
+curl localhost:5005/model/parse -d '{"text":"你好"}'|jq
 ```
 
 

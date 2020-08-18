@@ -1,3 +1,10 @@
+## intent:want_waimai
+- 我想点外卖
+- 我想吃外卖
+- 附近有什么好吃的
+- 附近有什么好吃的嘛
+- 外卖
+
 ## intent:confirm
 - 嗯
 - 好的
