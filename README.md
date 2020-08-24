@@ -14,6 +14,8 @@
 ## 说明
 - rasa-nlu 使用bert的例子,先train进行自定义预料的fine-tune，在用rasa启动nlu服务
 - 需要自己下载bert的预训练模型chinese_wwm_ext_L-12_H-768_A-1 
+- https://github.com/ymcui/Chinese-BERT-wwm#%E4%B8%AD%E6%96%87%E6%A8%A1%E5%9E%8B%E4%B8%8B%E8%BD%BD
+- 放到代码中的google目录下，具体检查配置文件config.yml
 - 自定义预料放在data/nlu/nlu.md中 配置intent和对应的话术
 
 ## Running by command
@@ -48,6 +50,8 @@ export PYTHONPATH=/path/to/your/component
 export PYTHONPATH=/opt/mt/rasa/rasa_bert/components
 ```
 上面完成后所需要的环境就搭建完成，下面就可以开始训练了，当然你需要在config.yml里面将bert的预训练路径指定下。
+这个不需要也可以，看是否能找到源码下的component目录即可
+
 ###some error when you install kashgari-tf in linux:
 ```
 ERROR: After October 2020 you may experience errors when installing or updating packages. This is because pip will change the way that it resolves dependency conflicts.
@@ -102,3 +106,6 @@ curl localhost:5005/model/parse -d '{"text":"你好"}'|jq
 
 ### 参考我的博客：
 https://www.iteye.com/blog/haoningabc-2516308
+简易安装参考 INSTALL.md 注意tensorflow要用1.14.0的版本
+检查 
+pip freeze|grep tensorflow
